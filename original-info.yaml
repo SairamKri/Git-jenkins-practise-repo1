@@ -1,0 +1,15 @@
+--- #This is the yaml file
+-hosts: webservers
+ user: ansible
+ become: true
+ connection: ssh
+
+ vars: 
+   pkgname:httpd
+
+ tasks:
+   name: installing the websoftware
+   action: yum name='{{pkgnmae}}' state=installed
+   when: ansible_os_family=="RedHat"
+   
+
